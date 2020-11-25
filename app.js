@@ -156,22 +156,6 @@ app.get("/compose",function(req,res){
 });
 
 
-//route for individual post page
-app.get("/post/:postId",function(req,res){
-
-  // const requestedPostId = req.params.postId;
-  //
-  // Post.findOne({_id : requestedPostId},function(err,post){
-  //   if(!err){
-  //       res.render("post",{
-  //         postHeading:post.title,
-  //         postContent:post.content,
-  //         postAuthor:post.author
-  //       });
-  //     }
-  //   });
-});
-
 
 //post route of compose page
 app.post("/compose",function(req,res){
@@ -179,7 +163,7 @@ app.post("/compose",function(req,res){
     content : req.body.postContent,
     name : req.body.postAuthorName
   });
-  
+
   quote.save(function(err){
     if(!err){
       res.redirect("/")
