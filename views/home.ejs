@@ -1,0 +1,34 @@
+<%- include("partials/header") -%>
+
+<h1><strong>Home</strong></h1>
+
+<p>Abiding culture with bundle of talents
+  Ghumat Mogi providing you the best platform to showcase your talent related to instruments and our very own festive special Aartis.
+  We are here  to  serve you with goa's best ghumat aarti singers, masters and vadaks performances preserving our culture.
+  Also grab goan instruments on our website with affordable prices.
+  Get an opportunity  to learn  ghumat aarti with our masters.</p>
+
+  <p>The first ever website focusing on ghumat aarti.A huge platform to engross your talent and our culture together in a single and
+    simple way.Grab the opportunity and be a part of our very own culture of ghumat aarti.
+    An artist's need is what we look upto.looking forward to give you a  user friendly  platform with amazing features</p>
+
+    <br>
+    <hr class="my-4">
+
+    <h3 class="quoteHeading">"Your Quotes"</h3>
+    <br>
+    <br>
+
+<% quotes.forEach(function(quote){%>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <p class="pHome" >
+        <%= quote.content %>
+      </p>
+      <h5 class="text-muted">-<%= quote.name %></h5>
+    </div>
+  </div>
+<% })%>
+
+
+<%- include("partials/footer") -%>
