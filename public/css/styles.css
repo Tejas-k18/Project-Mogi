@@ -1,3 +1,4 @@
+
 p{
   font-family: 'Open Sans', sans-serif;
 }
@@ -7,11 +8,6 @@ h4 {
   text-align:right;
 }
 
-.quoteHeading{
-  font-family: 'Open Sans', sans-serif;
-  text-align: center;
-  font-weight: bolder;
-}
 
 .jumbotron p{
   font-size: 1.8rem;

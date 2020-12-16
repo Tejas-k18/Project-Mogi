@@ -1,0 +1,29 @@
+<%- include("partials/header") -%>
+
+<h1>Groups Request</h1>
+<br>
+<br>
+
+<% groups.forEach(function(group){%>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <p class="pHome" >
+        <%= group.groupName %>
+        <%= group.groupAddress %>
+      </p>
+
+      <h5><%= group.aaratName %></h5>
+    </div>
+  </div>
+<% })%>
+
+<form class="" action="/groupRequestForm" method="post">
+
+  <button type="submit" class="btn btn-primary" name="button">New Request</button>
+
+</form>
+
+
+
+
+<%- include("partials/footer") -%>

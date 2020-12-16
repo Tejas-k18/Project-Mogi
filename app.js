@@ -1,9 +1,6 @@
-//jshint esversion:6
-
 const express = require("express"); //including express.js package
 const bodyParser = require("body-parser"); //including body parser package
 const ejs = require("ejs"); //including ejs package
-const _ = require("lodash") // including lodash package
 const mongoose = require("mongoose");
 
 const app = express();
@@ -18,21 +15,13 @@ mongoose.connect("mongodb://localhost:27017/ghumatMogi",{
   useUnifiedTopology : true
 });
 
-const memberSpecification = new mongoose.Schema({
-  memberName : {
-    type : String,
-    required : [true , "Enter your member name"]
-  },
 
-  role : {
-    type : String,
-    required : [true, "Enter the role,Eg: Ghumat vadak,Shamel vadak etc."]
-  }
-});
-
-const Member = mongoose.model("Member",memberSpecification);
+//--------------------------------- GROUP REQUEST REGISTRATION SCHEMA ----------------------------------
 
 const groupSchema = new mongoose.Schema({
+
+  _id : mongoose.Schema.Types.ObjectId,
+
   groupName : {
     type : String,
     required :[true , "Please give a name of your group!!"]
@@ -41,10 +30,11 @@ const groupSchema = new mongoose.Schema({
     type : String,
     required : [true , "Name of your group leader Please!!"]
   },
-  groupMembers : {
-    type : [memberSpecification],
-    required : [true , "Enter the name and role of your members.!"]
-  },
+  groupMembers : [{
+    type : mongoose.Schema.Types.ObjectId,
+    required : [true , "Enter the name and role of your members.!"],
+    ref : 'Member'
+  }],
   groupMaster : {
     type : String,
     required : [true , "Name of your group teacher Please!!"]
@@ -68,21 +58,31 @@ const groupSchema = new mongoose.Schema({
 });
 const Group = mongoose.model("Group",groupSchema);
 
-
-const itemsPrice = new mongoose.Schema({
-  instrument : {
+const memberSpecification = new mongoose.Schema({
+  memberName : {
     type : String,
-    required : [true, "instrument name"]
+    required : [true , "Enter your member name"]
   },
 
-  price : {
-    type : Number,
-    required : [true, "instrument Price"]
+  role : {
+    type : String,
+    required : [true, "Enter the role,Eg: Ghumat vadak,Shamel vadak etc."]
+  },
+
+  grpName : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'Group'
   }
 });
-const Item = mongoose.model("Item",itemsPrice);
+
+const Member = mongoose.model("Member",memberSpecification);
+
+
+//--------------------------------- VENDOR REGISTRATION SCHEMA ----------------------------------
 
 const vendorSchema = new mongoose.Schema({
+  _id : mongoose.Schema.Types.ObjectId,
+
   name : {
     type : String,
     required : [true , "Your Name Please"]
@@ -99,12 +99,34 @@ const vendorSchema = new mongoose.Schema({
   },
 
   items : {
-    type :[itemsPrice],
-    required : [true, "your selling item n Price"]
+    type : mongoose.Schema.Types.ObjectId,
+    required : [true , "Enter the Item Name!"],
+    ref : 'Vendor'
   }
 });
 const Vendor = mongoose.model("Vendor",vendorSchema);
 
+
+const itemsPrice = new mongoose.Schema({
+  instrument : {
+    type : String,
+    required : [true, "instrument name"]
+  },
+
+  price : {
+    type : Number,
+    required : [true, "instrument Price"]
+  },
+
+  venName : {
+    type : mongoose.Schema.Types.ObjectId,
+    ref : 'Vendor'
+  }
+});
+const Item = mongoose.model("Item",itemsPrice);
+
+
+//--------------------------------- QUOTE SCHEMA ------------------------------------
 
 const quoteSchema = new mongoose.Schema({
   name : {
@@ -132,6 +154,23 @@ Quote.find({},function(err,foundQuotes){
 });
 });
 
+//route for compose post page
+app.get("/compose",function(req,res){
+
+  res.render("compose");
+
+});
+
+
+//route for groups request form page
+app.get("/group",function(req,res){
+
+  res.render("group");
+
+});
+
+
+
 //route for about us page
 app.get("/about",function(req,res){
 
@@ -148,20 +187,44 @@ app.get("/contact",function(req,res){
 });
 
 
-//route for compose post page
-app.get("/compose",function(req,res){
-
-  res.render("compose");
-
-});
-
-
 
 //post route of compose page
 app.post("/compose",function(req,res){
   const quote = new Quote ({
     content : req.body.postContent,
     name : req.body.postAuthorName
+  });
+
+  quote.save(function(err){
+    if(!err){
+      res.redirect("/")
+    }
+  });
+});
+
+
+//post route of groups request form page
+app.post("/groupRequestForm",function(req,res){
+  const groupRequest = new Group ({
+    grpId :  new mongoose.Types.ObjectId(),
+    grpName : req.body.grpName,
+    grpLeaderName : req.body.grpLeaderName,
+    grpMasterName : req.body.grpMasterName,
+    grpAddr : req.body.grpAddr,
+    aaratName : req.body.aaratName,
+    aaratLyrics : req.body.aaratLyrics,
+    grpContact : req.body.grpContact
+  });
+
+  groupRequest.save(function(err){
+    if (err) {
+      handleError(err);
+    }
+  });
+
+  const members = new Member ({
+
+
   });
 
   quote.save(function(err){
