@@ -1,0 +1,34 @@
+<%- include("partials/header") -%>
+
+<h1 class="text-center"><u>Ghumat Aarti Instruments Vendors</u></h1>
+<br>
+<br>
+
+<% vendors.forEach(function(vendor){%>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h2 class="pHome" >
+        <%= vendor.vendorName %>
+      </h2>
+      <p class="pHome" >
+        <%= vendor.vendorContact %>
+      </p>
+      <p class="pHome" >
+        <%= vendor.vendorAddress %>
+      </p>
+      <p class="pHome" >
+        <%= vendor.vendorItems %>
+      </p>
+    </div>
+  </div>
+<% })%>
+
+<form class="" action="/vendorRegisterForm" method="get">
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg" name="button"><i class="fas fa-plus-circle"></i>  New Vendor</button>
+  </div>
+
+</form>
+
+
+<%- include("partials/footer") -%>

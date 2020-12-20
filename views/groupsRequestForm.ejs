@@ -1,0 +1,70 @@
+<%- include("partials/header") -%>
+
+    <form class="" action="/groupRequestForm" method="post">
+      <div class="form-group">
+        <label>Group Name : </label>
+        <input class="form-control" type="text" name="grpName" value="" aria-describedby="basic-addon1" autocomplete="off">
+        <br>
+
+        <label>Group Leader : </label>
+        <input class="form-control" type="text" name="grpLeaderName" value="" aria-describedby="basic-addon1" autocomplete="off">
+        <br>
+
+        <label>Group Master : </label>
+        <input class="form-control" type="text" name="grpMasterName" value="" aria-describedby="basic-addon1" autocomplete="off">
+        <br>
+
+        <label>Group Address : </label>
+        <input class="form-control" type="text" name="grpAddr" value="" aria-describedby="basic-addon1" autocomplete="off">
+        <br>
+
+        <label>Aarat Name : </label>
+        <input class="form-control" type="text" name="aaratName" value="" aria-describedby="basic-addon1" autocomplete="off">
+        <br>
+
+        <label>Aarat Lyrics : </label>
+        <textarea class="form-control" name="aaratLyrics" rows="5" cols="60"></textarea>
+        <br>
+
+        <label>Contact : </label>
+        <input class="form-control" type="tel" name="grpContact" value="" aria-describedby="basic-addon1" autocomplete="off">
+
+        <div class="" style="text-align:center;margin-top: 3rem;">
+          <button type="submit" class="btn btn-primary btn-lg mt-4" name="button">Submit</button>
+        </div>
+
+      </div>
+    </div>
+    </form>
+
+    <!-- <form class="" action="/memberForm" method="post">
+      <div class="form-inline">
+        <div class="form-group mb-2">
+          <label>Member Name :  </label>
+          <div id="memName">
+          <input type="text" name="memberName1" id="memberName1" value="" >
+          </div>
+        </div>
+
+        <div class="form-group mx-sm-3 mb-2" style="margin-left: 20px;">
+          <label> Member Role :  </label>
+          <div id="memRole">
+          <input type="text" id="memberRole1" name="memberRole1" value="">
+          </div>
+        </div>
+        <div class="form-group mx-sm-3 mb-2" style="margin-left: 20px;" >
+          <div id="memRole">
+          <input type="text" id="grpname" name="grpname" value="" hidden="true">
+          </div>
+        </div>
+        <br>
+        <br>
+        <button type="buton" class="btn btn-primary mb-2" style="margin-left: 0px;" id="addMem" name="button">Add Member</button>
+        <button type="button" class="btn btn-primary mb-2" id="delMem" name="button" style="margin-left: 10px;">Delete Member</button>
+        <button type="submit" class="btn btn-primary mb-2" id="submitMembers" name="button" style="margin-left: 10px;">Submit</button> -->
+      <!-- </div>
+    </form> -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/index.js"></script>
+<%- include("partials/footer") -%>

@@ -1,0 +1,28 @@
+<%- include("partials/header") -%>
+
+<h1 class="text-center"><u>Groups Request</u></h1>
+<br>
+<br>
+
+<% groups.forEach(function(group){%>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <p class="pHome" >
+        <%= group.groupName %>
+      </p>
+      <h5>-<%= group.aarat %></h5>
+      <%= group.aaratLyrics.substring(0,100)+ "..." %>
+      <a href="/group/<%= group._id %>">View Full Details</a>
+    </div>
+  </div>
+<% })%>
+
+<form class="" action="/groupsRequestForm" method="get">
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg" name="button"><i class="fas fa-plus-circle"></i>  New Request</button>
+  </div>
+
+</form>
+
+
+<%- include("partials/footer") -%>

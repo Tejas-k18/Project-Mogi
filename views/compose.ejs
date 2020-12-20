@@ -1,22 +1,26 @@
 <%- include("partials/header") -%>
 
-<h1>तुमचे विचार</h1>
+<h1 class="text-center">"तुमचे विचार"</h1>
 <br>
 <br>
 
-<form class="" action="/compose" method="post">
-  <div class="form-group">
-    <label>विचार</label>
-    <textarea class="form-control" name="postContent" rows="5" cols="60"></textarea>
-    <br>
-    <label>नांव </label>
-    <input class="form-control" type="text" name="postAuthorName" value="" aria-describedby="basic-addon1" autocomplete="off">
+<% quotes.forEach(function(quote){%>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <p class="pHome" >
+        <%= quote.content %>
+      </p>
+      <h5 class="text-muted">-<%= quote.name %></h5>
+    </div>
   </div>
-  <button type="submit" class="btn btn-primary" name="button">Publish</button>
+<% })%>
+
+<form class="" action="/composeForm" method="get">
+  <div class="text-center">
+    <button type="submit" class="btn btn-primary btn-lg" name="button"><i class="fas fa-plus-circle"></i>  New Quote</button>
+  </div>
 
 </form>
-
-
 
 
 <%- include("partials/footer") -%>

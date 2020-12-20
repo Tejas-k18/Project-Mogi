@@ -1,6 +1,19 @@
+body{
+  background: #EFEFBB;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to left, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
+
+}
+
+.nav-color{
+  background: #EFEFBB;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to left, #D4D3DD, #EFEFBB);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to left, #D4D3DD, #EFEFBB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
 p{
-  font-family: 'Open Sans', sans-serif;
+    font-family: 'Philosopher', sans-serif;
 }
 
 h4 {
@@ -8,21 +21,27 @@ h4 {
   text-align:right;
 }
 
+h1 {
+    font-family: 'Sahitya', serif;
+}
 
 .jumbotron p{
   font-size: 1.8rem;
 }
 
 .jumbotron {
+  background-color:#f4f4f2;
   padding-top: 25px;
   padding-bottom: 25px;
   line-height: 2;
+  border: 1px solid Blue;
 }
 
 .container-fluid {
     padding-top: 70px;
     padding-bottom: 70px;
 }
+
 .navbar {
     padding-top: 15px;
     padding-bottom: 15px;
@@ -38,7 +57,12 @@ h4 {
 
 .navbar-brand{
   font-family: 'Martel', serif;
-  font-size: 3rem;
+  font-size: 4rem;
+}
+
+.home-intro{
+  font-size: 2rem;
+
 }
 
 .vichar-text {
@@ -64,4 +88,49 @@ h4 {
 	margin-top: 10px;
 	font-size: 12px;
   color: #fff;
+}
+
+.separator1{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    font-size: 4rem;
+}
+.separator1::before{
+    content: 'Lyrics Videos';
+    flex: 1;
+    border-bottom: 3px solid #000;
+    margin-bottom: 3rem;
+    font-family: 'Sahitya', serif;
+}
+
+.separator1::before {
+    margin-top: 2rem;
+
+}
+.separator1::after {
+    margin-left: .25em;
+}
+
+.separator2{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.separator2::before{
+    content: 'घुमट महासंगम ';
+    flex: 1;
+    border-bottom: 3px solid #000;
+    margin-bottom: 3rem;
+    font-family: 'Sahitya', serif;
+}
+
+.separator2::before {
+    margin-top: 2rem;
+
+}
+.separator2::after {
+    margin-left: .25em;
 }
