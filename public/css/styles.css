@@ -97,7 +97,7 @@ h1 {
     font-size: 4rem;
 }
 .separator1::before{
-    content: 'Lyrics Videos';
+    content: '-----Lyrics Videos-----';
     flex: 1;
     border-bottom: 3px solid #000;
     margin-bottom: 3rem;
@@ -120,7 +120,7 @@ h1 {
 }
 
 .separator2::before{
-    content: 'घुमट महासंगम ';
+    content: '-----घुमट महासंगम-----';
     flex: 1;
     border-bottom: 3px solid #000;
     margin-bottom: 3rem;
@@ -133,4 +133,38 @@ h1 {
 }
 .separator2::after {
     margin-left: .25em;
+}
+
+.separator3{
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 4rem;
+}
+
+.separator3::before{
+    content: '-----Social Media-----';
+    flex: 1;
+    border-bottom: 3px solid #000;
+    margin-bottom: 3rem;
+    font-family: 'Sahitya', serif;
+}
+
+.separator3::before {
+    margin-top: 2rem;
+
+}
+.separator3::after {
+    margin-left: .25em;
+}
+
+.font-link {
+  text-decoration: none;
+  color: #5fdde5;
+  margin-left: 20px;
+  font-size: 40px;
+}
+
+.font-link :hover {
+  color: black;
 }
